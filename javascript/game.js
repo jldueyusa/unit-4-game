@@ -1,96 +1,78 @@
-// declaring variables
-var wins = 0;
-var losses = 0;
-//var finalScore = 0;
-var score = 0;
+// build a game with 4 crystals
+//Every crystal needs to have a random number between 1-12
 
-// generating a random number for beginning the game
-var random = Math.floor((Math.random()* 100)+ 19);
+//when clicking any crystal, it should be adding with the previous result
+//until it equals the random result
+//if it is greater than the random result, we decrement a lost counter
+//if it is equal, then we increment a win counter
+//a new random number should be generated every single time we win or lose
+//to those 4 crystals
 
-//generating random numbers for the crystals
-var crystal1 = Math.floor((Math.random() * 12) + 1);
-var crystal2 = Math.floor((Math.random() * 12) + 1);
-var crystal3 = Math.floor((Math.random() * 12) + 1);
-var crystal4 = Math.floor((Math.random() * 12) + 1);
-console.log("1 is " +crystal1);
-console.log("2 is " +crystal2);
-console.log("3 is " +crystal3);
-console.log("4 is " +crystal4);
 
-//updating scores total, wins, and losses
-var updatedScore = function() {
-	$('#wins').empty();
-	$('#wins').append(wins);
+//set global variables
+var random_result;
+var lost = 0;
+var win = 0;
+var previous = 0;
 
-	$('#losses').empty();
-	$('#losses').append(losses);
 
-	$('.score').empty();
-	$('.score').append(score);
 
+var resetAndStart = function () {
+    $(".crystals").empty();
+
+    random_result = Math.floor(Math.random() * 69) + 30; //random number cannot start less than 30 for addition purposes
+    //console.log(random_result)
+
+    $("#result").html('Random Number Is: ' + random_result);
+    for (var i = 0; i < 4; i++) {
+
+
+        var random = Math.floor(Math.random() * 11) + 1; //should not start from 0 should start from 1
+        //console.log(random);
+
+        var crystal = $("<div>");
+
+        crystal.attr({
+            "class": 'crystal',
+            "data-random": random
+        })
+
+        $(".crystals").append(crystal);
+    }
+
+    $("#previous").html("Total Score: " + previous);
 }
 
-//when the game restarts it should..
-var restartGame = function() {
-	score = 0;
-	random = Math.floor((Math.random()* 100)+ 19);
+resetAndStart();
 
-	$('.random').empty();
-	$('.random').append(random);
-
-	var crystal1 = Math.floor((Math.random() * 12) + 1);
-	var crystal2 = Math.floor((Math.random() * 12) + 1);
-	var crystal3 = Math.floor((Math.random() * 12) + 1);
-	var crystal4 = Math.floor((Math.random() * 12) + 1);
-	
-
-	updatedScore();
-
-}
-
-//game process 
-var gameProcess = function() {
-	if(score == random) {
-		wins = wins + 1;
-		alert("You win!");
-		restartGame();
-	}
-	else if (score > random) {
-		losses = losses + 1;
-		alert("You Lost!");
-		restartGame();
-	}
-	else {
-		updatedScore();
-	}
-
-}
-
-// updating results
-$('.random').append(random);
-$('.score').append(score);
+//event delegation
+$(document).on('click', ".crystal", function () { //new element on the DOM listen to it
 
 
-//adding numbers to final scores when crystals are clicked
-$(document).ready(function(){
-	$('#crystal1').click(function(){
- 		score = score + crystal1;
- 		gameProcess();
- 	})
+    var num = parseInt($(this).attr('data-random'));
+    previous += num;
+    $("#previous").html("Total Score: " + previous);
 
- 	$('#crystal2').click(function(){
- 		score = score + crystal2;
- 		gameProcess();
- 	})
+    if (previous > random_result) {
+        lost++;
+        $("#lost").html("You Lost " + lost);
+        previous = 0;
 
- 	$('#crystal3').click(function(){
- 		score = score + crystal3;
- 		gameProcess();
- 	})
+       
 
- 	$('#crystal4').click(function(){
- 		score = score + crystal4;
- 		gameProcess();
- 	})
+        resetAndStart();
+    }
+    else if (previous === random_result) {
+        win++;
+        $("#win").html("You Win " + win);
+
+      
+
+        previous = 0;
+        resetAndStart();
+    }
+
+
+
 
 });
