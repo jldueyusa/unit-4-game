@@ -15,33 +15,43 @@ var lost = 0;
 var win = 0;
 var previous = 0;
 
+document.body.style.backgroundImage = "url('background.png')";
 
+
+var images=[
+    "C1.png",
+    "C2.png",
+    "C3.png",
+    "C4.png"
+]
 
 var resetAndStart = function () {
     $(".crystals").empty();
 
-    random_result = Math.floor(Math.random() * 69) + 30; //random number cannot start less than 30 for addition purposes
+    random_result = Math.floor(Math.random() * 90) + 30; //random number cannot start less than 30 for addition purposes
     //console.log(random_result)
 
-    $("#result").html('Random Number Is: ' + random_result);
+    $("#result").html('<strong>Random Number Is: ' + random_result + '</strong>');
     for (var i = 0; i < 4; i++) {
 
 
         var random = Math.floor(Math.random() * 11) + 1; //should not start from 0 should start from 1
         //console.log(random);
 
-        var crystal = $("<div>");
+        var crystal = $("<img>");
 
         crystal.attr({
             "class": 'crystal',
-            "data-random": random
+            "data-random": random,
+            "src": images[i]
         })
 
         $(".crystals").append(crystal);
     }
 
-    $("#previous").html("Total Score: " + previous);
+    $("#previous").html("<strong>Total Score: " + previous +'</strong>');
 }
+
 
 resetAndStart();
 
@@ -51,11 +61,11 @@ $(document).on('click', ".crystal", function () { //new element on the DOM liste
 
     var num = parseInt($(this).attr('data-random'));
     previous += num;
-    $("#previous").html("Total Score: " + previous);
+    $("#previous").html("<strong>Total Score: " + previous + '</strong>');
 
     if (previous > random_result) {
         lost++;
-        $("#lost").html("You Lost " + lost);
+        $("#lost").html("<strong>You Lost: " + lost + '</strong>');
         previous = 0;
 
        
@@ -64,7 +74,7 @@ $(document).on('click', ".crystal", function () { //new element on the DOM liste
     }
     else if (previous === random_result) {
         win++;
-        $("#win").html("You Win " + win);
+        $("#win").html("<strong>You Win: " + win + '</strong>');
 
       
 
