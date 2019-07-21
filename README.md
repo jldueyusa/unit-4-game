@@ -4,7 +4,7 @@
 
 # Welcome to the Crystal Collector
 
-Here is how the game works. There are 4 crystals that have random numbers attached to them which change each time the game starts over. The player is given a random number to meet. The player clicks on the crystals where the score adds each number to the value. If the player hits the random number they were given exactly, the player wins. If the player goes over, they lose.
+Here is how the game works. At the beginning of the game a random number will be given. Each one of the four crystals at the bottom have a random value; by clicking on the crystals you will add a specific number to your total score. The value of crystals will be hidden until it has been clicked. You win the game by matching your score to the random number, you lose if you exceed the random number. In each new game, the random number and the value of the crystals is different.
 
 ### Created by: Jennifer Duey
 
@@ -17,48 +17,26 @@ To view a play by play instructional video by clicking the link below
 
 ### Step by step visual instructions
 
-1. In the local host or from the Heroku link [(Click Here for Heroku Link)](https://scraper777.herokuapp.com/), locate to the "Scrape" button in the upper right hand corner of the navigation bar to get a list of articles
+1. In the local host or from the Heroku link [(Click Here for Heroku Link)](https://scraper777.herokuapp.com/), upon starting the game, the Random Number to meet will be set, with the score at 0 below the crystals.
 
-![scraper Inst 1](https://github.com/jldueyusa/scraper/blob/master/public/assets/scrape1.png)
+![crystal Inst 1](https://github.com/jldueyusa/unit-4-game/blob/master/images/crystal1.png)
 
 
-2. Select and article you would like to read and click on the "Read Article" button
+2. Once you start clicking on the crystals, you will see your score increase by the hidden number.
 
-![scraper Inst 2](https://github.com/jldueyusa/scraper/blob/master/public/assets/scrape2.png)
+![crystal Inst 2](https://github.com/jldueyusa/unit-4-game/blob/master/images/crystal2.png)
 
-3. Underneath the article, you will find an area to enter your name and a comment. After filling in these fields, click on submit.
+3. If you match the number exactly "You Win" will appear under your score with the number of times you have won. You will also notice that game restarts.
 
-![scraper Inst 3](https://github.com/jldueyusa/scraper/blob/master/public/assets/scrape3.png)
+![crystal Inst 3](https://github.com/jldueyusa/unit-4-game/blob/master/images/crystal3.png)
 
-4. After you click on submit, you can see your comment posted on the same page
+4. If you go over the Random Number, "You Lose" will appear with the number of times you have lost and the game will start over.
 
-![scraper Inst 4](https://github.com/jldueyusa/scraper/blob/master/public/assets/scrape4.png)
-
-5. To clear the articles and comments, navigate to the "Clear Articles" button in the upper right hand corner of the navigation bar
-
-![scraper Inst 5](https://github.com/jldueyusa/scraper/blob/master/public/assets/scrape5.png)
-
-6. After clearing the articles and comments, you will be taken back to the first page to start scraping again
-
-![scraper Inst 6](https://github.com/jldueyusa/scraper/blob/master/public/assets/scrape6.png)
-
-7. To view the code for this app, click on the "Git Repo" button in the upper right hand corner of the navigation bar
-
-![scraper Inst 7](https://github.com/jldueyusa/scraper/blob/master/public/assets/scrape7.png)
-
+![crystal Inst 4](https://github.com/jldueyusa/unit-4-game/blob/master/images/crystal4.png)
 
 # Tools and Applications
-- Javascript
-- Node.js
-- Node packages
-  - axios
-  - body-parser
-  - cheerio
-  - express
-  - express-handlebars
-  - mongoose
-  - morgan
-  - path
-  - request
-- Handlebars
-- Mongo
+- JavaScript
+- jQuery
+- HTML
+- CSS
+
