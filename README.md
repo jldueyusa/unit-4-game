@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/jldueyusa/scraper/blob/master/public/assets/newspaper.png" width="250" height="200">
+<img src="https://github.com/jldueyusa/unit-4-game/blob/master/images/readme.png" width="400" height="200">
 </p>
 
 # Welcome to the Crystal Collector
