@@ -17,7 +17,7 @@ To view a play by play instructional video by clicking the link below
 
 ### Step by step visual instructions
 
-1. In the local host or from the Heroku link [(Click Here for Heroku Link)](https://scraper777.herokuapp.com/), upon starting the game, the Random Number to meet will be set, with the score at 0 below the crystals.
+1. Click the link [here](https://crystalcollector777.herokuapp.com/) to launch the game. Once in the game, the Random Number to meet will be set, with the score set to 0 below the crystals.
 
 ![crystal Inst 1](https://github.com/jldueyusa/unit-4-game/blob/master/images/crystal1.png)
 
